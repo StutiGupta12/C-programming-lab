@@ -1,15 +1,20 @@
 #include<stdio.h>
 void main()
 {
-	int a, b,ad,s,m,d;
-	printf("Enter two no.s");
-	scanf_s("%d%d", &a, &b);
-	ad = a + b;
-	s = a - b;
-	d = a / b;
-	m = a * b;
-	printf("Sum is %d", ad);
-	printf("\nAnswer of Subtraction is %d", s);
-	printf("\nProduct is %d", m);
-	printf("\nQuotient is %d", d);
+	float l, b, s, r, pr, ar, ps, as, pc, ac;
+	printf("Enter length and breadth of rectangle");
+	scanf_s("%f%f", &l, &b);
+	pr = 2 * (l + b);
+	ar = l * b;
+	printf("Perimeter and area of rectangle is %.2f and %.2f", pr, ar);
+	printf("\nEnter side of square");
+	scanf_s("%f", &s);
+	ps = 4 * s;
+	as = s * s;
+	printf("Perimeter and area of square is %.2f and %.2f", ps, as);
+	printf("\nEnter radius of circle");
+	scanf_s("%f", &r);
+	pc = 2 * 3.14 * r;
+	ac = 3.14 * r * r;
+	printf("Perimeter and area of circle is %.2f and %.2f", pc, ac);
 }
