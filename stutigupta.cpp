@@ -1,20 +1,12 @@
 #include<stdio.h>
+#include<math.h>
 void main()
 {
-	float l, b, s, r, pr, ar, ps, as, pc, ac;
-	printf("Enter length and breadth of rectangle");
-	scanf_s("%f%f", &l, &b);
-	pr = 2 * (l + b);
-	ar = l * b;
-	printf("Perimeter and area of rectangle is %.2f and %.2f", pr, ar);
-	printf("\nEnter side of square");
-	scanf_s("%f", &s);
-	ps = 4 * s;
-	as = s * s;
-	printf("Perimeter and area of square is %.2f and %.2f", ps, as);
-	printf("\nEnter radius of circle");
-	scanf_s("%f", &r);
-	pc = 2 * 3.14 * r;
-	ac = 3.14 * r * r;
-	printf("Perimeter and area of circle is %.2f and %.2f", pc, ac);
+	float x1, x2, y1, y2, d;
+	printf("Enter x and y co-ordinate of first point");
+	scanf_s("%f%f", &x1, &y1);
+	printf("Enter x and y co-ordinate of second point");
+	scanf_s("%f%f", &x2, &y2);
+	d = sqrt(pow((x2 - x1), 2) + pow((y2 - y1), 2));
+	printf("Distance between the points is %.2f", d);
 }
