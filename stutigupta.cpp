@@ -2,16 +2,15 @@
 #include<math.h>
 void main()
 {
-int a,b;
-printf("Enter a Number");
-scanf_s("%d", &a);
-b = a % 2;
-if (b == 0)
-{
-	printf("%d is even", a);
-}
-else
-{
-	printf("%d is odd", a);
-}
+	char a;
+	printf("Enter an alphabet from a-z");
+	scanf_s("%c", &a);
+	if ((a == 'A') || (a == 'a') || (a == 'e') || (a == 'E') || (a == 'I') || (a == 'i') || (a == 'o') || (a == 'O') || (a == 'U') || (a == 'u'))
+	{
+		printf("%c is vowel", a);
+	}
+	else
+	{
+		printf("%c is consonant", a);
+	}
 }
