@@ -2,28 +2,24 @@
 #include<math.h>
 void main()
 {
-    int num, sum = 0, r, l=0, num1;
+    int i=2, n, c;
     printf("Enter a number");
-    scanf_s("%d", &num);
-    num1 = num;
-    while (num > 0)
+    scanf_s("%d", &n);
+    c = 0;
+    while (i < n / 2)
     {
-        l++;
-        num = num / 10;
+        if (n % i == 0)
+        {
+            c = 1;
+            break;
+        }
     }
-    num = num1;
-    while (num > 0)
+    if (n == 1)
     {
-        r = num % 10;
-        sum = sum + pow(r, l);
-        num = num / 10;
+        printf("%d is neither prime or composite",n);
     }
-    if (num1 == sum)
-    {
-        printf("Number is an armstrong number");
-    }
+    if (c == 0)
+        printf("%d is prime", n);
     else
-    {
-        printf("Number is not an armstrong number");
-    }
+        printf("%d is composite", n);
 }
