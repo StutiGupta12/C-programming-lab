@@ -1,19 +1,15 @@
 #include<stdio.h>
 void main()
 {
-    int i, n, f = 1;
-    printf("Enter a positive integer");
+    int i, n, n1=0, n2=1 , s=0;
+    printf("Enter the limit");
     scanf_s("%d", &n);
-    if (n >= 0)
+    for (i = 0; i < n; i++)
     {
-        for (i = n; i > 0; i--)
-        {
-            f = i * f;
-        }
-        printf("Factorial is %d", f);
+        printf("%d\n", s);
+        s = n1 + n2;
+       
+        n1 = i;
+        n2 = s;
     }
-    else {
-        printf("Factorial of negative number is not eligible");
-    }
-    
 }
