@@ -1,19 +1,29 @@
 #include<stdio.h>
+#include<math.h>
 void main()
 {
-    int n, i;
-    double num, max = -9999999.0;
-    printf("Enter the number of elements");
-    scanf_s("%d", &n);
-    for (i = 1; i <= n; i++)
+    int num, sum = 0, r, l=0, num1;
+    printf("Enter a number");
+    scanf_s("%d", &num);
+    num1 = num;
+    while (num > 0)
     {
-        printf("Enter %d number", i);
-        scanf_s("%lf", &num);
-        if (num > max)
-        {
-            max = num;
-        }
-        
+        l++;
+        num = num / 10;
     }
-    printf("Max number is %.2lf", max);
+    num = num1;
+    while (num > 0)
+    {
+        r = num % 10;
+        sum = sum + pow(r, l);
+        num = num / 10;
+    }
+    if (num1 == sum)
+    {
+        printf("Number is an armstrong number");
+    }
+    else
+    {
+        printf("Number is not an armstrong number");
+    }
 }
