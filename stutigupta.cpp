@@ -1,15 +1,19 @@
 #include<stdio.h>
 void main()
 {
-    int i, n, n1=0, n2=1 , s=0;
-    printf("Enter the limit");
+    int n, i;
+    double num, max = -9999999.0;
+    printf("Enter the number of elements");
     scanf_s("%d", &n);
-    for (i = 0; i < n; i++)
+    for (i = 1; i <= n; i++)
     {
-        printf("%d\n", s);
-        s = n1 + n2;
-       
-        n1 = i;
-        n2 = s;
+        printf("Enter %d number", i);
+        scanf_s("%lf", &num);
+        if (num > max)
+        {
+            max = num;
+        }
+        
     }
+    printf("Max number is %.2lf", max);
 }
