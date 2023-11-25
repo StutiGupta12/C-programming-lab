@@ -1,22 +1,42 @@
 #include<stdio.h>
 void main()
 {
-	int a[3][3], i, j;
-	printf("Enter elements of array\n");
+	int a[3][3],b[3][3],c[3][3], i, j, k;
+	printf("Enter elements of array 1\n");
 	for (i = 0; i < 3; i++)
 	{
 		for (j = 0; j < 3; j++)
 		{
-			printf("Enter a[%d][%d]=", i + 1, j + 1);
+			printf("Enter element a[%d][%d]=", i + 1, j + 1);
 			scanf_s("%d", &a[i][j]);
 		}
 	}
-	printf("Elements are\n");
+	printf("Enter elements of array 2\n");
 	for (i = 0; i < 3; i++)
 	{
 		for (j = 0; j < 3; j++)
 		{
-			printf("%d ", a[i][j]);
+			printf("Enter element b[%d][%d]=", i + 1, j + 1);
+			scanf_s("%d", &b[i][j]);
+		}
+	}
+	for (i = 0; i < 3; i++)
+	{
+		for (j = 0; j < 3; j++)
+		{
+			c[i][j] = 0;
+			for (k = 0; k < 3; k++)
+			{
+				c[i][j] = c[i][j] + (a[i][k] * b[k][j]);
+			}
+		}
+	}
+	printf("Matrix multiplication is\n");
+	for (i = 0; i < 3; i++)
+	{
+		for (j = 0; j < 3; j++)
+		{
+			printf("%d ", c[i][j]);
 		}
 		printf("\n");
 	}
