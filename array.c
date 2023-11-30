@@ -3,18 +3,31 @@
 void main()
 {
     char str[20],str1[20];
-    int length,res,leng;
+    int l,i,j,flag=0;
     printf("\nEnter the string :- ");
     gets(str);
-    printf("\nEnter the other string :- ");
-    gets(str1);
-    length = strlen(str);
-    leng = strlen(str1);
-    printf("Length of the given string is %d\n", length);
-    printf("Length of the given string is %d\n", leng);
-    res = strcmp(str,str1);
-    printf("Compare string result is :%d ", res);
-    printf("Copy of string is %s\n", strcpy(str, str1));
-    printf("Uppercase string is %s\n", strupr(str)); 
-    printf("Lowercase string is %s\n", strlwr(str1));
+    l = strlen(str);
+    for(i=0,j=l-1;i<l;i++,j--)
+    {
+        str1[j]=str[i];
+    }
+    for(i=0;i<l;i++)
+    {
+        if(str1[i]==str[i])
+        {
+            flag=0;
+        }
+        else
+        {
+            flag=-1;
+            break;
+        }
+    }
+    if(flag==0)
+    {
+        printf("String is pallindrome");
+    }
+    else{
+        printf("String is not pallindrome");
+    }
 }
