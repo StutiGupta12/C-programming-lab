@@ -1,20 +1,24 @@
+
 #include <stdio.h>
-int fact(int n)
+
+void FibusingGoto(int n)
 {
-    if(n==0)
+    int a = 0 ,b=1,sum=0;
+    labelfib:
+
+    if(n!=0)
     {
-        return 1;
-    }
-    else
-    {
-        return n*fact(n-1);
+        printf("%d\n",a);
+        sum = a+b;
+        a = b;
+        b =sum;
+        n--;
+        goto labelfib;
     }
 }
+
 void main()
 {
-    int n,ans;
-    printf("Enter a number");
-    scanf("%d",&n);
-    ans=fact(n);
-    printf("Factorial is %d",ans);
+    int n=5;
+    FibusingGoto(n);
 }
