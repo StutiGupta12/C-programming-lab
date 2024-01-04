@@ -7,52 +7,58 @@ struct Student {
     float marks;
 };
 
-// Function to display student information
-void displayStudent(struct Student s) {
-    printf("Name: %s\n", s.name);
-    printf("Roll Number: %d\n", s.rollNumber);
-    printf("Marks: %.2f\n", s.marks);
-    printf("\n");
-}
+// Function to write student data to a file
+void writeStudentData(const char *filename, struct Student students[], int size) {
+    FILE *file = fopen(filename, "w");
 
-// Function to calculate and display average marks of all students
-void calculateAverage(struct Student students[], int size) {
-    float totalMarks = 0;
+    if (file == NULL) {
+        perror("Error opening file for writing");
+        return;
+    }
 
     for (int i = 0; i < size; i++) {
-        totalMarks += students[i].marks;
+        fprintf(file, "%s %d %.2f\n", students[i].name, students[i].rollNumber, students[i].marks);
     }
 
-    float average = totalMarks / size;
-    printf("Average Marks of All Students: %.2f\n", average);
+    fclose(file);
+    printf("Student data written to the file successfully.\n");
 }
 
-int main(void) {
-    // Declare an array of structures to store student marks
-    struct Student students[3];
+// Function to read student data from a file
+void readStudentData(const char *filename) {
+    FILE *file = fopen(filename, "r");
 
-    // Input information for each student
-    for (int i = 0; i < 3; i++) {
-        printf("Enter details for student %d:\n", i + 1);
-        printf("Name: ");
-        scanf("%s", students[i].name);
-
-        printf("Roll Number: ");
-        scanf("%d", &students[i].rollNumber);
-
-        printf("Marks: ");
-        scanf("%f", &students[i].marks);
-
-        printf("\n");
+    if (file == NULL) {
+        perror("Error opening file for reading");
+        return;
     }
 
-    // Display information for each student using the displayStudent function
-    for (int i = 0; i < 3; i++) {
-        displayStudent(students[i]);
+    printf("\nReading student data from the file:\n");
+
+    struct Student student;
+
+    while (fscanf(file, "%s %d %f", student.name, &student.rollNumber, &student.marks) != EOF) {
+        printf("Name: %s, Roll Number: %d, Marks: %.2f\n", student.name, student.rollNumber, student.marks);
     }
 
-    // Calculate and display the average marks of all students using the calculateAverage function
-    calculateAverage(students, 3);
+    fclose(file);
+}
+
+int main() {
+    // Declare an array of structures to store student data
+    struct Student students[3] = {
+        {"John Doe", 101, 85.5},
+        {"Jane Smith", 102, 92.0},
+        {"Bob Johnson", 103, 78.5}
+    };
+
+    const char *filename = "student_data.txt";
+
+    // Write student data to a file
+    writeStudentData(filename, students, 3);
+
+    // Read and display student data from the file
+    readStudentData(filename);
 
     return 0;
 }
