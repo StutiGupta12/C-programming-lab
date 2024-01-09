@@ -1,20 +1,39 @@
-#include <stdio.h>
-int main() {
-    int k, room[1000], i, captainRoom = 0;
-    printf("Enter the size of each group (K): ");
-    scanf("%d", &k);
-    printf("Enter the unordered room number list (Enter 0 to end): ");
-    i = 0;
-    int l=0;
-    do {
-        scanf("%d", &room[i]);
+#include<stdio.h>
+void main()
+{
+    int a[30],b[30],n,flag;
+    printf("Enter number of elements :- ");
+    scanf("%d",&n);
+    printf("Enter elements of array :- ");
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+        b[i] = 0;
+    }
+    printf("Repeating elements are :- \n");
+    for(int i=0;i<n;)
+    {
+        flag=0;
+        if(b[i]==0)
+        {
+        for(int j=i+1;j<n;j++)
+        {
+            if(a[i]==a[j])
+            {
+                flag = 1;
+                b[j]=1;
+            }
+        }
+        }
+        if(flag==1)
+        {
+        printf("%d\n",a[i]);
         i++;
-        l++;
-    } while (room[i - 1] != 0);
-    for (i = 0; i<l; i++)
-     {
-        captainRoom ^= room[i];
-     }
-    printf("Captain's room number is: %d\n", captainRoom);
-    return 0;
+        }
+        else
+        {
+        i++;
+        }
+
+    }
 }
